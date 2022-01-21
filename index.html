@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./sass/index.css">
+    <title>Form Validator</title>
+</head>
+<body>
+    <main>
+        <h1>Register With Us</h1>
+        <form action="" id="form">
+            <div class="formControl">
+                <label for="name">Username</label>
+                <input type="text" name="name" id="name" placeholder="Enter a username">
+                <p class="error" id="nameMessage"></p>
+            </div>
+            <div class="formControl">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter an email">
+                <p class="error" id="emailMessage"></p>
+            </div>
+            <div class="formControl">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter a password">
+                <p class="error" id="passwordMessage"></p>
+            </div>
+            <div class="formControl">
+                <label for="confirm">Confirm Password</label>
+                <input type="password" name="confirm" id="confirm" placeholder="Enter a password again">
+                <p class="error" id="confirmMessage"></p>
+            </div>
+            <button type="submit" id="btn">Submit</button>
+        </form>
+        <p class="account">Have already an account? <span class="login">Login Now!</span></p>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
