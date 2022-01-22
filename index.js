@@ -10,54 +10,50 @@ form.addEventListener('click', function (e) {
     e.preventDefault()
 })
 
+const itsNotValid = (message, element) =>{
+    message.classList.remove("errorMessage")
+    message.className = "error"
+    element.classList.remove("errorField")
+}
+
+const itsValid = (message, element) =>{
+    message.className = "errorMessage"
+    message.classList.remove("error")
+    element.className = "errorField"
+}
+
 const validate = (username, email, password, confirmPassword) => {
 
     if (username.value.length < 3) {
         let nameMessage = document.getElementById("nameMessage")
         nameMessage.innerText = "Name must be at leats 3 characters"
-        nameMessage.className = "errorMessage"
-        nameMessage.classList.remove("error")
-        username.className = "errorField"
+        itsValid(nameMessage, username)
     } else {
-        nameMessage.classList.remove('errorMessage')
-        username.classList.remove('errorField')
-        nameMessage.className = "error"
+        itsNotValid(nameMessage, username)
     }
     if (email.value.length === 0 || /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value) === false) {
         let emailMessage = document.getElementById('emailMessage')
         emailMessage.removeAttribute("class")
         emailMessage.innerText = "Not valid email"
-        emailMessage.className = "errorMessage"
-        emailMessage.classList.remove("error")
-        email.className = "errorField"
+        itsValid(emailMessage, email)
     } else {
-        emailMessage.classList.remove('errorMessage')
-        email.classList.remove('errorField')
-        emailMessage.className = "error"
+        itsNotValid(emailMessage, email)
     }
     if (password.value.length < 6) {
         let passwordMessage = document.getElementById("passwordMessage")
         passwordMessage.removeAttribute("class")
         passwordMessage.innerText = "Password must be at least 6 characters"
-        passwordMessage.className = "errorMessage"
-        passwordMessage.classList.remove("error")
-        password.className = "errorField"
+        itsValid(passwordMessage, password)
     }else {
-        passwordMessage.classList.remove('errorMessage')
-        password.classList.remove('errorField')
-        passwordMessage.className = "error"
+        itsNotValid( passwordMessage, password)
     }
     if (password.value !== confirmPassword.value || password.value === "") {
         let confirmMessage = document.getElementById("confirmMessage")
         confirmMessage.removeAttribute("class")
         confirmMessage.innerText = "Password needs to be the same"
-        confirmMessage.className = "errorMessage"
-        confirmMessage.classList.remove("error")
-        confirmPassword.className = "errorField"
+        itsValid(confirmMessage, confirmPassword)
     }else {
-        confirmMessage.classList.remove('errorMessage')
-        confirmPassword.classList.remove('errorField')
-        confirmMessage.className = "error"
+        itsNotValid(confirmMessage, confirmPassword)
     }
 
 }
